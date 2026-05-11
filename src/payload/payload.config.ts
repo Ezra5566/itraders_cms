@@ -36,9 +36,11 @@ const generateTitle: GenerateTitle = () => {
 
 const mockModulePath = path.resolve(__dirname, './emptyModuleMock.js')
 
-dotenv.config({
-  path: path.resolve(__dirname, '../../.env'),
-})
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+  dotenv.config({
+    path: path.resolve(__dirname, '../../.env'),
+  })
+}
 
 export default buildConfig({
   admin: {

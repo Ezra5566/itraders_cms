@@ -24,7 +24,7 @@ export async function fetchSettings(): Promise<Settings> {
       return res.data?.Settings
     })
 
-  return settings
+  return settings || null
 }
 
 export async function fetchHeader(): Promise<Header> {
